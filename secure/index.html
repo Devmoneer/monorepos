@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ku">
+<html lang="ku-latn" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>دروستکەرى پێوەندەوشە — moneerdev.site</title>
-  <meta name="description" content="دروستکەرى پارەسەنگى پێوەندەوشە بە هێز و بەرزبوونەوە، ریسپۆنسڤ و بەتەواوی پاراستە." />
+  <title>دروستکەرێ پاسوۆردێ یێ پرۆ</title>
+  <meta name="description" content="دروستکەرێ پاسوۆردێ یێ پاراستی و بەرسڤدەرە دگەل نمرەیا ب هێزیێ، ئینترۆپی، و ئامرازێن کۆپیکرن/بەلاڤکرنێ." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -112,12 +112,12 @@
       <div class="brand">
         <div class="logo" aria-hidden="true"></div>
         <div>
-          <h1>دروستکەرى پێوەندەوشە — moneerdev.site</h1>
-          <div style="color:var(--muted); font-size: 13px">پاراستە • خۆشەویست • ریسپۆنسڤ</div>
+          <h1>دروستکەرێ پاسوۆردێ یێ پرۆ</h1>
+          <div style="color:var(--muted); font-size: 13px">پاراستی • جوان • بەرسڤدەر</div>
         </div>
       </div>
       <div class="row">
-        <button id="newBtn" class="btn btn-primary" title="دروست بکە (Ctrl/⌘+G)">دروست بکە</button>
+        <button id="newBtn" class="btn btn-primary" title="دروستکرن (Ctrl/⌘+G)">دروستکرن</button>
       </div>
     </header>
 
@@ -126,16 +126,16 @@
         <section class="stack">
           <div class="output">
             <div class="pw-box" aria-live="polite">
-              <div class="pw" id="password">—</div>
+              <div class="pw" id="password" title="پاسوۆردێ دروستکری">—</div>
               <div class="actions">
-                <button id="toggleBtn" aria-pressed="false" title="نیشان/پوشان">نیشان/پوشان</button>
-                <button id="copyBtn" title="کۆپی بکە (Ctrl/⌘+C)">کۆپی</button>
+                <button id="toggleBtn" aria-pressed="false" title="نیشاندان/ڤەشارتن">👁️</button>
+                <button id="copyBtn" title="کۆپیکرن بۆ کلیپبۆردێ (Ctrl/⌘+C)">کۆپی کرن</button>
               </div>
             </div>
 
             <div class="meter-wrap">
               <div class="meter" aria-hidden="true"><div id="bar" class="bar bad"></div></div>
-              <div class="meter-label"><span id="scoreLabel">هێز: 0/4 (زۆر ضعیف)</span><span id="entropy">ئێنتڕۆپی: 0 بیت</span></div>
+              <div class="meter-label"><span id="scoreLabel">نمرە: 0/4 (گەلەک لاواز)</span><span id="entropy">ئینترۆپی: 0 بیت</span></div>
             </div>
 
             <div class="tips" id="tips"></div>
@@ -144,38 +144,39 @@
 
         <aside class="controls">
           <div class="control">
-            <label for="len">درێژایی: <strong id="lenVal">16</strong></label>
+            <label for="len">درێژی: <strong id="lenVal">16</strong></label>
             <input id="len" type="range" min="8" max="64" value="16" />
           </div>
 
           <div class="checkboxes">
-            <label class="check"><input type="checkbox" id="lower" checked /> <span>پیتە بچووک (a–z)</span></label>
-            <label class="check"><input type="checkbox" id="upper" checked /> <span>پیتە گەورە (A–Z)</span></label>
-            <label class="check"><input type="checkbox" id="nums" checked /> <span>ژمارەکان (0–9)</span></label>
-            <label class="check"><input type="checkbox" id="syms" checked /> <span>نیشانەکان (!@#$…)</span></label>
-            <label class="check"><input type="checkbox" id="excludeSimilar" /> <span>لابردنی هەمان شێوە (0/O, 1/l)</span></label>
-            <label class="check"><input type="checkbox" id="noRepeats" /> <span>بێ-تکرار (aa, 11)</span></label>
+            <label class="check"><input type="checkbox" id="lower" checked /> <span>پیتێن بچووک (a–z)</span></label>
+            <label class="check"><input type="checkbox" id="upper" checked /> <span>پیتێن مەزن (A–Z)</span></label>
+            <label class="check"><input type="checkbox" id="nums" checked /> <span>ژمارە (0–9)</span></label>
+            <label class="check"><input type="checkbox" id="syms" checked /> <span>هێما (!@#$…)</span></label>
+            <label class="check"><input type="checkbox" id="excludeSimilar" /> <span>یێن لێکچووڤی ڤەشێرە (0/O, 1/l/I)</span></label>
+            <label class="check"><input type="checkbox" id="noRepeats" /> <span>دووبارە نەبن (aa, 11)</span></label>
           </div>
 
           <div class="row" style="justify-content:space-between">
-            <button id="generateBtn" class="btn btn-primary">دروست بکەى نوێ</button>
-            <button id="resetBtn">ڕیستە بکە</button>
+            <button id="generateBtn" class="btn btn-primary">نوو دروست بکە</button>
+            <button id="resetBtn">ژ نووڤە دەستپێکرن</button>
           </div>
         </aside>
       </div>
 
       <div class="panel">
         <details>
-          <summary style="cursor:pointer; color:var(--primary); font-weight:600">چۆن هێزەکە دابین دەکات</summary>
+          <summary style="cursor:pointer; color:var(--primary); font-weight:600">نمرەدان چەوا کار دکەت</summary>
           <p style="color:var(--muted); line-height:1.6">
-            هێز لە 0–4 دەبێت و بە بنچینەی درێژایی، جۆری پیتەکان، ئێنتڕۆپی و پەترنەکانی ناوخۆی (وەک تاقیکردنەوەی ڕیز و کلیل) هەڵسەنگێنرێت. ئێنتڕۆپی بە خوارەوە هەژمار دەکرێت: <code>درێژە × log2(قەبارەی حەوت)</code>.
+            نمرە ژ 0–4 یە ل سەر بنەمایێ درێژی، جور و جۆرییا کاراکتەران، ئینترۆپی، و پاترنێن گشتی (رێزبەندی و ب کارئینانا کیبۆردێ). ئینترۆپی نێزیک کرییە وەک
+            <code>درێژی × log2(قەبارەی پۆل)</code>.
           </p>
         </details>
       </div>
     </div>
 
     <footer>
-      دروستکراو بە ❤️ — بەکارهێنانی <code>crypto.getRandomValues()</code> بۆ هەڵبژاردنی خاوەن-ڕەخن.
+      ب <span aria-hidden="true">💙</span> دروست کرییە — <code>crypto.getRandomValues()</code> ب کاردئینیت ژ بۆ راندەمیا پاراستی.
     </footer>
   </div>
 
@@ -185,7 +186,7 @@
       lower: "abcdefghijklmnopqrstuvwxyz",
       upper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
       nums:  "0123456789",
-      syms:  "!@#$%^&*(){}[]<>/\`~.,;:'\"+-_=|?"
+      syms:  "!@#$%^&*(){}[]<>/\\`~.,;:'\"+-_=|?"
     };
 
     const SIMILAR = new Set([...'0Oo1lI|`"\'{}[]()<>']);
@@ -213,6 +214,7 @@
     }
 
     function rng(max){
+      // cryptographically secure random integer in [0, max)
       const arr = new Uint32Array(1);
       window.crypto.getRandomValues(arr);
       return Math.floor((arr[0] / (0xFFFFFFFF + 1)) * max);
@@ -255,10 +257,11 @@
 
       const pool = buildPool();
       if(pool.length === 0){
-        return 'تکایە یەکێک هەلبژێرە';
+        return 'هەر کێم یەک کۆمەلەکێ هەلبژێرە';
       }
 
       let out = [];
+      // ensure at least one from each chosen set for variety
       out.push(...ensureAtLeastOneFromEach(selected));
 
       while(out.length < state.opts.length){
@@ -272,10 +275,11 @@
     }
 
     function estimateEntropy(pwd, poolSize){
-      return Math.round((Math.log2(poolSize) * pwd.length) * 10)/10;
+      return Math.round((Math.log2(poolSize) * pwd.length) * 10)/10; // 0.1 precision
     }
 
-    const qwerty = "`1234567890-=qwertyuiop[]\asdfghjkl;'zxcvbnm,./";
+    // Simple pattern checks
+    const qwerty = "`1234567890-=qwertyuiop[]\\asdfghjkl;'zxcvbnm,./";
     function hasSequential(p){
       const lowers = p.toLowerCase();
       for(let i=0;i<lowers.length-2;i++){
@@ -288,7 +292,7 @@
     }
 
     function strengthScore(pwd, poolSize){
-      if(!pwd || pwd.startsWith('تکایە')) return {score:0, label:'زۆر ضعیف', tips:["تکایە یەکێک هەلبژێرە."]};
+      if(!pwd || pwd.startsWith('هەر کێم')) return {score:0, label:'گەلەک لاواز', tips:["هەر کێم یەک کۆمەلەکێ کاراکتەران هەلبژێرە."]};
 
       let score = 0; const tips = [];
       const len = pwd.length;
@@ -299,13 +303,17 @@
         /[^a-zA-Z0-9]/.test(pwd) && 'syms',
       ].filter(Boolean)).size;
 
-      if(len >= 20) score += 2; else if(len >= 14) score += 1; else tips.push('درێژایی 14+ بەکاربهێنە.');
-      if(setsUsed >= 3) score += 1; else tips.push('پیتە بچووک/گەورە، ژمارە و نیشانەکان تێبکەوە.');
+      // length
+      if(len >= 20) score += 2; else if(len >= 14) score += 1; else tips.push('14+ کاراکتەران ب کاربینە.');
+      // variety
+      if(setsUsed >= 3) score += 1; else tips.push('پیتێن مەزن/بچووک، ژمارە، هێما تێکەل بکە.');
+      // entropy
       const ent = estimateEntropy(pwd, poolSize);
-      if(ent >= 90) score += 1; else tips.push('ئێنتڕۆپی زیاتر بکە (درێژە یان قەبارە).');
-      if(hasSequential(pwd)) { score = Math.max(0, score-1); tips.push('لەسەر ریزەکان و پەترنەکان واژۆ مەکەوە (abc, 123, qwe).'); }
+      if(ent >= 90) score += 1; else tips.push('ئینترۆپیێ زێدە بکە (درێژی یان قەبارەی پۆل).');
+      // patterns
+      if(hasSequential(pwd)) { score = Math.max(0, score-1); tips.push('خۆ ژ رێزبەندیان ب پارێزە وەک abc, 123 یان qwe.'); }
 
-      const labels = ['زۆر ضعیف','ضعیف','باش','هێز','زۆر هێز'];
+      const labels = ['گەلەک لاواز','لاواز','باشە','ب هێز','نایاب'];
       return {score: Math.max(0, Math.min(4, score)), label: labels[Math.max(0, Math.min(4, score))], tips, entropy: ent}
     }
 
@@ -320,11 +328,11 @@
       const widths = ['5%','25%','50%','75%','100%'];
       barEl.style.width = widths[score];
       barEl.className = 'bar ' + (score<=1? 'bad' : score===2 ? 'ok' : score===3 ? 'good' : 'great');
-      scoreLabelEl.textContent = `هێز: ${score}/4 (${label})`;
-      entropyEl.textContent = `ئێنتڕۆپی: ${entropy || 0} بیت`;
+      scoreLabelEl.textContent = `نمرە: ${score}/4 (${label})`;
+      entropyEl.textContent = `ئینترۆپی: ${entropy || 0} بیت`;
 
       tipsEl.innerHTML = '';
-      (tips.length? tips : ['باشە!']).forEach(t=>{
+      (tips.length? tips : ['باش دچیت!']).forEach(t=>{
         const div = document.createElement('div');
         div.className = 'tip';
         const dot = document.createElement('span'); dot.className='dot';
@@ -337,14 +345,16 @@
     function copyToClipboard(text){
       navigator.clipboard.writeText(text).then(()=>{
         const prev = el('copyBtn').textContent;
-        el('copyBtn').textContent = 'کۆپی کرا';
+        el('copyBtn').textContent = 'کۆپی کر!';
         setTimeout(()=> el('copyBtn').textContent = prev, 1200);
       }).catch(()=>{
+        // fallback
         const ta = document.createElement('textarea');
         ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
       });
     }
 
+    // Event wiring
     lenEl.addEventListener('input', e=>{state.opts.length = +e.target.value; lenValEl.textContent = e.target.value; updateUI()});
     ['lower','upper','nums','syms','excludeSimilar','noRepeats'].forEach(id=>{
       el(id).addEventListener('change', e=>{state.opts[id] = e.target.checked; updateUI()});
@@ -359,7 +369,7 @@
 
     el('copyBtn').addEventListener('click', ()=>{
       const real = passwordEl.dataset.real || '';
-      if(real && !real.startsWith('تکایە')) copyToClipboard(real);
+      if(real && !real.startsWith('هەر کێم')) copyToClipboard(real);
     });
 
     el('generateBtn').addEventListener('click', updateUI);
@@ -371,12 +381,12 @@
       ['lower','upper','nums','syms','excludeSimilar','noRepeats'].forEach(id=>{ el(id).checked = state.opts[id]; });
       updateUI();
     });
-
     document.addEventListener('keydown', (e)=>{
       if((e.ctrlKey||e.metaKey) && e.key.toLowerCase()==='g'){ e.preventDefault(); updateUI(); }
       if((e.ctrlKey||e.metaKey) && e.key.toLowerCase()==='c'){ e.preventDefault(); const p = passwordEl.dataset.real||''; if(p) copyToClipboard(p); }
     });
 
+    // Initial
     updateUI();
   </script>
 </body>
