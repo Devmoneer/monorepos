@@ -381,6 +381,8 @@
       ['lower','upper','nums','syms','excludeSimilar','noRepeats'].forEach(id=>{ el(id).checked = state.opts[id]; });
       updateUI();
     });
+
+    // Keyboard shortcuts
     document.addEventListener('keydown', (e)=>{
       if((e.ctrlKey||e.metaKey) && e.key.toLowerCase()==='g'){ e.preventDefault(); updateUI(); }
       if((e.ctrlKey||e.metaKey) && e.key.toLowerCase()==='c'){ e.preventDefault(); const p = passwordEl.dataset.real||''; if(p) copyToClipboard(p); }
