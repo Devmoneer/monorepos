@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ku">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pro Password Generator</title>
-  <meta name="description" content="Secure, responsive password generator with strength scoring, entropy, and copy/share tools." />
+  <title>دروستکەرى پێوەندەوشە — moneerdev.site</title>
+  <meta name="description" content="دروستکەرى پارەسەنگى پێوەندەوشە بە هێز و بەرزبوونەوە، ریسپۆنسڤ و بەتەواوی پاراستە." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -112,12 +112,12 @@
       <div class="brand">
         <div class="logo" aria-hidden="true"></div>
         <div>
-          <h1>Pro Password Generator</h1>
-          <div style="color:var(--muted); font-size: 13px">Secure • Beautiful • Responsive</div>
+          <h1>دروستکەرى پێوەندەوشە — moneerdev.site</h1>
+          <div style="color:var(--muted); font-size: 13px">پاراستە • خۆشەویست • ریسپۆنسڤ</div>
         </div>
       </div>
       <div class="row">
-        <button id="newBtn" class="btn btn-primary" title="Generate (Ctrl/⌘+G)">Generate</button>
+        <button id="newBtn" class="btn btn-primary" title="دروست بکە (Ctrl/⌘+G)">دروست بکە</button>
       </div>
     </header>
 
@@ -126,16 +126,16 @@
         <section class="stack">
           <div class="output">
             <div class="pw-box" aria-live="polite">
-              <div class="pw" id="password" title="Generated password">—</div>
+              <div class="pw" id="password">—</div>
               <div class="actions">
-                <button id="toggleBtn" aria-pressed="false" title="Show/Hide">👁️</button>
-                <button id="copyBtn" title="Copy to clipboard (Ctrl/⌘+C)">Copy</button>
+                <button id="toggleBtn" aria-pressed="false" title="نیشان/پوشان">نیشان/پوشان</button>
+                <button id="copyBtn" title="کۆپی بکە (Ctrl/⌘+C)">کۆپی</button>
               </div>
             </div>
 
             <div class="meter-wrap">
               <div class="meter" aria-hidden="true"><div id="bar" class="bar bad"></div></div>
-              <div class="meter-label"><span id="scoreLabel">Score: 0/4 (Very Weak)</span><span id="entropy">Entropy: 0 bits</span></div>
+              <div class="meter-label"><span id="scoreLabel">هێز: 0/4 (زۆر ضعیف)</span><span id="entropy">ئێنتڕۆپی: 0 بیت</span></div>
             </div>
 
             <div class="tips" id="tips"></div>
@@ -144,39 +144,38 @@
 
         <aside class="controls">
           <div class="control">
-            <label for="len">Length: <strong id="lenVal">16</strong></label>
+            <label for="len">درێژایی: <strong id="lenVal">16</strong></label>
             <input id="len" type="range" min="8" max="64" value="16" />
           </div>
 
           <div class="checkboxes">
-            <label class="check"><input type="checkbox" id="lower" checked /> <span>Lowercase (a–z)</span></label>
-            <label class="check"><input type="checkbox" id="upper" checked /> <span>Uppercase (A–Z)</span></label>
-            <label class="check"><input type="checkbox" id="nums" checked /> <span>Numbers (0–9)</span></label>
-            <label class="check"><input type="checkbox" id="syms" checked /> <span>Symbols (!@#$…)</span></label>
-            <label class="check"><input type="checkbox" id="excludeSimilar" /> <span>Exclude similar (0/O, 1/l/I)</span></label>
-            <label class="check"><input type="checkbox" id="noRepeats" /> <span>No repeats (aa, 11)</span></label>
+            <label class="check"><input type="checkbox" id="lower" checked /> <span>پیتە بچووک (a–z)</span></label>
+            <label class="check"><input type="checkbox" id="upper" checked /> <span>پیتە گەورە (A–Z)</span></label>
+            <label class="check"><input type="checkbox" id="nums" checked /> <span>ژمارەکان (0–9)</span></label>
+            <label class="check"><input type="checkbox" id="syms" checked /> <span>نیشانەکان (!@#$…)</span></label>
+            <label class="check"><input type="checkbox" id="excludeSimilar" /> <span>لابردنی هەمان شێوە (0/O, 1/l)</span></label>
+            <label class="check"><input type="checkbox" id="noRepeats" /> <span>بێ-تکرار (aa, 11)</span></label>
           </div>
 
           <div class="row" style="justify-content:space-between">
-            <button id="generateBtn" class="btn btn-primary">Generate New</button>
-            <button id="resetBtn">Reset</button>
+            <button id="generateBtn" class="btn btn-primary">دروست بکەى نوێ</button>
+            <button id="resetBtn">ڕیستە بکە</button>
           </div>
         </aside>
       </div>
 
       <div class="panel">
         <details>
-          <summary style="cursor:pointer; color:var(--primary); font-weight:600">How scoring works</summary>
+          <summary style="cursor:pointer; color:var(--primary); font-weight:600">چۆن هێزەکە دابین دەکات</summary>
           <p style="color:var(--muted); line-height:1.6">
-            Score is from 0–4 based on length, character variety, entropy, and common patterns (sequences and keyboard runs). Entropy is approximated as
-            <code>length × log2(poolSize)</code>.
+            هێز لە 0–4 دەبێت و بە بنچینەی درێژایی، جۆری پیتەکان، ئێنتڕۆپی و پەترنەکانی ناوخۆی (وەک تاقیکردنەوەی ڕیز و کلیل) هەڵسەنگێنرێت. ئێنتڕۆپی بە خوارەوە هەژمار دەکرێت: <code>درێژە × log2(قەبارەی حەوت)</code>.
           </p>
         </details>
       </div>
     </div>
 
     <footer>
-      Built with <span aria-hidden="true">💙</span> — uses <code>crypto.getRandomValues()</code> for secure randomness.
+      دروستکراو بە ❤️ — بەکارهێنانی <code>crypto.getRandomValues()</code> بۆ هەڵبژاردنی خاوەن-ڕەخن.
     </footer>
   </div>
 
@@ -186,7 +185,7 @@
       lower: "abcdefghijklmnopqrstuvwxyz",
       upper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
       nums:  "0123456789",
-      syms:  "!@#$%^&*(){}[]<>/\\`~.,;:'\"+-_=|?"
+      syms:  "!@#$%^&*(){}[]<>/\`~.,;:'\"+-_=|?"
     };
 
     const SIMILAR = new Set([...'0Oo1lI|`"\'{}[]()<>']);
@@ -214,7 +213,6 @@
     }
 
     function rng(max){
-      // cryptographically secure random integer in [0, max)
       const arr = new Uint32Array(1);
       window.crypto.getRandomValues(arr);
       return Math.floor((arr[0] / (0xFFFFFFFF + 1)) * max);
@@ -257,11 +255,10 @@
 
       const pool = buildPool();
       if(pool.length === 0){
-        return 'Select at least one set';
+        return 'تکایە یەکێک هەلبژێرە';
       }
 
       let out = [];
-      // ensure at least one from each chosen set for variety
       out.push(...ensureAtLeastOneFromEach(selected));
 
       while(out.length < state.opts.length){
@@ -275,11 +272,10 @@
     }
 
     function estimateEntropy(pwd, poolSize){
-      return Math.round((Math.log2(poolSize) * pwd.length) * 10)/10; // 0.1 precision
+      return Math.round((Math.log2(poolSize) * pwd.length) * 10)/10;
     }
 
-    // Simple pattern checks
-    const qwerty = "`1234567890-=qwertyuiop[]\\asdfghjkl;'zxcvbnm,./";
+    const qwerty = "`1234567890-=qwertyuiop[]\asdfghjkl;'zxcvbnm,./";
     function hasSequential(p){
       const lowers = p.toLowerCase();
       for(let i=0;i<lowers.length-2;i++){
@@ -292,7 +288,7 @@
     }
 
     function strengthScore(pwd, poolSize){
-      if(!pwd || pwd.startsWith('Select')) return {score:0, label:'Very Weak', tips:["Select at least one character set."]};
+      if(!pwd || pwd.startsWith('تکایە')) return {score:0, label:'زۆر ضعیف', tips:["تکایە یەکێک هەلبژێرە."]};
 
       let score = 0; const tips = [];
       const len = pwd.length;
@@ -303,17 +299,13 @@
         /[^a-zA-Z0-9]/.test(pwd) && 'syms',
       ].filter(Boolean)).size;
 
-      // length
-      if(len >= 20) score += 2; else if(len >= 14) score += 1; else tips.push('Use 14+ characters.');
-      // variety
-      if(setsUsed >= 3) score += 1; else tips.push('Mix upper/lower, numbers, symbols.');
-      // entropy
+      if(len >= 20) score += 2; else if(len >= 14) score += 1; else tips.push('درێژایی 14+ بەکاربهێنە.');
+      if(setsUsed >= 3) score += 1; else tips.push('پیتە بچووک/گەورە، ژمارە و نیشانەکان تێبکەوە.');
       const ent = estimateEntropy(pwd, poolSize);
-      if(ent >= 90) score += 1; else tips.push('Increase entropy (length or pool).');
-      // patterns
-      if(hasSequential(pwd)) { score = Math.max(0, score-1); tips.push('Avoid sequences like abc, 123 or qwe.'); }
+      if(ent >= 90) score += 1; else tips.push('ئێنتڕۆپی زیاتر بکە (درێژە یان قەبارە).');
+      if(hasSequential(pwd)) { score = Math.max(0, score-1); tips.push('لەسەر ریزەکان و پەترنەکان واژۆ مەکەوە (abc, 123, qwe).'); }
 
-      const labels = ['Very Weak','Weak','Okay','Strong','Excellent'];
+      const labels = ['زۆر ضعیف','ضعیف','باش','هێز','زۆر هێز'];
       return {score: Math.max(0, Math.min(4, score)), label: labels[Math.max(0, Math.min(4, score))], tips, entropy: ent}
     }
 
@@ -328,11 +320,11 @@
       const widths = ['5%','25%','50%','75%','100%'];
       barEl.style.width = widths[score];
       barEl.className = 'bar ' + (score<=1? 'bad' : score===2 ? 'ok' : score===3 ? 'good' : 'great');
-      scoreLabelEl.textContent = `Score: ${score}/4 (${label})`;
-      entropyEl.textContent = `Entropy: ${entropy || 0} bits`;
+      scoreLabelEl.textContent = `هێز: ${score}/4 (${label})`;
+      entropyEl.textContent = `ئێنتڕۆپی: ${entropy || 0} بیت`;
 
       tipsEl.innerHTML = '';
-      (tips.length? tips : ['Looks good!']).forEach(t=>{
+      (tips.length? tips : ['باشە!']).forEach(t=>{
         const div = document.createElement('div');
         div.className = 'tip';
         const dot = document.createElement('span'); dot.className='dot';
@@ -345,16 +337,14 @@
     function copyToClipboard(text){
       navigator.clipboard.writeText(text).then(()=>{
         const prev = el('copyBtn').textContent;
-        el('copyBtn').textContent = 'Copied!';
+        el('copyBtn').textContent = 'کۆپی کرا';
         setTimeout(()=> el('copyBtn').textContent = prev, 1200);
       }).catch(()=>{
-        // fallback
         const ta = document.createElement('textarea');
         ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
       });
     }
 
-    // Event wiring
     lenEl.addEventListener('input', e=>{state.opts.length = +e.target.value; lenValEl.textContent = e.target.value; updateUI()});
     ['lower','upper','nums','syms','excludeSimilar','noRepeats'].forEach(id=>{
       el(id).addEventListener('change', e=>{state.opts[id] = e.target.checked; updateUI()});
@@ -369,7 +359,7 @@
 
     el('copyBtn').addEventListener('click', ()=>{
       const real = passwordEl.dataset.real || '';
-      if(real && !real.startsWith('Select')) copyToClipboard(real);
+      if(real && !real.startsWith('تکایە')) copyToClipboard(real);
     });
 
     el('generateBtn').addEventListener('click', updateUI);
@@ -382,13 +372,11 @@
       updateUI();
     });
 
-    // Keyboard shortcuts
     document.addEventListener('keydown', (e)=>{
       if((e.ctrlKey||e.metaKey) && e.key.toLowerCase()==='g'){ e.preventDefault(); updateUI(); }
       if((e.ctrlKey||e.metaKey) && e.key.toLowerCase()==='c'){ e.preventDefault(); const p = passwordEl.dataset.real||''; if(p) copyToClipboard(p); }
     });
 
-    // Initial
     updateUI();
   </script>
 </body>
